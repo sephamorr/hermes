@@ -12,6 +12,7 @@
 		3648B5EE158EC4C80091C930 /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = 3648B5EA158EC4C80091C930 /* Server.h */; };
 		3648B5F2158EC69A0091C930 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3648B5E9158EC4C80091C930 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3648B5F3158EC69C0091C930 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 3648B5EB158EC4C80091C930 /* Server.m */; };
+		36730D0B1BDAB2680074249C /* Spotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 36730D0A1BDAB2680074249C /* Spotifier.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -168,6 +169,8 @@
 		3648B5E9158EC4C80091C930 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		3648B5EA158EC4C80091C930 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		3648B5EB158EC4C80091C930 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		36730D091BDAB2680074249C /* Spotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotifier.h; sourceTree = "<group>"; };
+		36730D0A1BDAB2680074249C /* Spotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spotifier.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hermes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hermes-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971CC3981585DA11004D75BA /* NetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnection.h; sourceTree = "<group>"; };
@@ -486,6 +489,8 @@
 				FA0E556014784AF500C36794 /* AppleScript.m */,
 				FA94E6F61368E62C0063860C /* Scrobbler.h */,
 				FA94E6F71368E62C0063860C /* Scrobbler.m */,
+				36730D091BDAB2680074249C /* Spotifier.h */,
+				36730D0A1BDAB2680074249C /* Spotifier.m */,
 				FA1063BC132C6A8A00D6DE42 /* Keychain.h */,
 				FA1063BD132C6A8A00D6DE42 /* Keychain.m */,
 				FA6E801C1438E50C00D01FB5 /* Growler.h */,
@@ -862,6 +867,7 @@
 				FA229D6814429F69008AB9FE /* HistoryController.m in Sources */,
 				FA04AE96144365D900819310 /* HistoryItem.m in Sources */,
 				FA0E556114784AF500C36794 /* AppleScript.m in Sources */,
+				36730D0B1BDAB2680074249C /* Spotifier.m in Sources */,
 				FA454685156604D100EE98C7 /* blowfish.c in Sources */,
 				FACFACD615673690008A2140 /* StationController.m in Sources */,
 				97539FAD158442A500D1E65C /* URLConnection.m in Sources */,

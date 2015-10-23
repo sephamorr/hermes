@@ -16,6 +16,7 @@
 #import "PlaybackController.h"
 #import "PreferencesController.h"
 #import "Scrobbler.h"
+#import "Spotifier.h"
 #import "StationController.h"
 #import "StationsController.h"
 #import "Server.h"
@@ -23,7 +24,7 @@
 @implementation HermesAppDelegate
 
 @synthesize stations, auth, playback, pandora, window, history, station,
-            growler, scrobbler, mediaKeyTap, server;
+            growler, scrobbler, spotifier, mediaKeyTap, server;
 
 - (id) init {
   if ((self = [super init])) {

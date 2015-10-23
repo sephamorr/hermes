@@ -10,6 +10,7 @@
 @class PandoraRequest;
 @class Growler;
 @class Scrobbler;
+@class Spotifier;
 @class SPMediaKeyTap;
 @class Server;
 
@@ -38,6 +39,7 @@
   IBOutlet StationController *station;
   IBOutlet Growler *growler;
   IBOutlet Scrobbler *scrobbler;
+  IBOutlet Spotifier *spotifier;
   IBOutlet SPMediaKeyTap *mediaKeyTap;
 }
 
@@ -50,6 +52,7 @@
 @property (retain) Pandora *pandora;
 @property (retain) Growler *growler;
 @property (retain) Scrobbler *scrobbler;
+@property (retain) Spotifier *spotifier;
 @property (retain) SPMediaKeyTap *mediaKeyTap;
 @property (retain) Server *server;
 
