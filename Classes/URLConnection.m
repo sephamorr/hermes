@@ -82,9 +82,12 @@ static void URLConnectionStreamCallback(CFReadStreamRef aStream,
     NSDictionary *settings =
     [NSDictionary dictionaryWithObjectsAndKeys:
      (NSString *)kCFStreamSocketSecurityLevelNegotiatedSSL, kCFStreamSSLLevel,
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
      [NSNumber numberWithBool:NO], kCFStreamSSLAllowsExpiredCertificates,
      [NSNumber numberWithBool:NO], kCFStreamSSLAllowsExpiredRoots,
      [NSNumber numberWithBool:NO], kCFStreamSSLAllowsAnyRoot,
+#pragma GCC diagnostic pop
      [NSNumber numberWithBool:YES], kCFStreamSSLValidatesCertificateChain,
      [NSNull null], kCFStreamSSLPeerName,
      nil];

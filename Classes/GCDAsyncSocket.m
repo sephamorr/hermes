@@ -32,6 +32,8 @@
 #import <sys/uio.h>
 #import <unistd.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 #if 0
 
@@ -4167,7 +4169,7 @@ enum GCDAsyncSocketConfig
 		return;
 	}
 	
-	BOOL hasBytesAvailable;
+	BOOL hasBytesAvailable = NO;
 	unsigned long estimatedBytesAvailable;
 	
 	if ([self usingCFStreamForTLS])
@@ -7258,4 +7260,6 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	return [NSData dataWithBytes:"" length:1];
 }
 
-@end	
+@end
+
+#pragma GCC diagnostic pop
