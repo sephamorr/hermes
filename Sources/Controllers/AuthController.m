@@ -45,7 +45,7 @@
   } else {
     [password becomeFirstResponder];
   }
-  [self controlTextDidChange];
+  [self controlTextDidChange_h];
 }
 
 - (void) authenticationSucceeded: (NSNotification*) notification {
@@ -79,7 +79,7 @@
   [[NSApp delegate] setCurrentView:view];
   [username becomeFirstResponder];
 
-  [self controlTextDidChange];
+  [self controlTextDidChange_h];
 }
 
 /* Log out the current session */
@@ -89,7 +89,11 @@
   [[delegate pandora] logout];
 }
 
-- (void)controlTextDidChange {
+- (void)controlTextDidChange:(NSNotification *)unused_v {
+  [self controlTextDidChange_h];
+}
+
+- (void)controlTextDidChange_h {
   NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", ROUGH_EMAIL_REGEX];
   
   [login setEnabled:

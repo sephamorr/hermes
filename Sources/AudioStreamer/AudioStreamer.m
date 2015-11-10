@@ -769,30 +769,54 @@ static void ASReadStreamCallBack(CFReadStreamRef aStream, CFStreamEventType even
     CHECK_ERR(err, AS_FILE_STREAM_OPEN_FAILED);
   }
 
-  UInt8 bytes[2048];
-  CFIndex length;
-  int i;
-  for (i = 0;
-       i < 3 && ![self isDone] && CFReadStreamHasBytesAvailable(stream);
-       i++) {
-    length = CFReadStreamRead(stream, bytes, sizeof(bytes));
-
-    if (length < 0) {
-      [self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
-      return;
-    } else if (length == 0) {
-      return;
+  UInt8 bytes[8192];
+  while(true){
+      if([self isDone] || (!CFReadStreamHasBytesAvailable(stream)))
+      {
+        break;
+      }
+      
+      CFIndex length = CFReadStreamRead(stream, bytes, sizeof(bytes));
+      if (length < 0) {
+        [self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
+        break;
+      } else if (length == 0) {
+        break;
+      }
+      if (discontinuous) {
+        err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length, bytes,
+                                        kAudioFileStreamParseFlag_Discontinuity);
+      } else {
+        err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length,
+                                        bytes, 0);
+      }
+      CHECK_ERR(err, AS_FILE_STREAM_PARSE_BYTES_FAILED);
     }
 
-    if (discontinuous) {
-      err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length, bytes,
-                                      kAudioFileStreamParseFlag_Discontinuity);
-    } else {
-      err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length,
-                                      bytes, 0);
-    }
-    CHECK_ERR(err, AS_FILE_STREAM_PARSE_BYTES_FAILED);
-  }
+  // UInt8 bytes[2048];
+  // CFIndex length;
+  // int i;
+  // for (i = 0;
+  //      i < 3 && ![self isDone] && CFReadStreamHasBytesAvailable(stream);
+  //      i++) {
+  //   length = CFReadStreamRead(stream, bytes, sizeof(bytes));
+
+  //   if (length < 0) {
+  //     [self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
+  //     return;
+  //   } else if (length == 0) {
+  //     return;
+  //   }
+
+  //   if (discontinuous) {
+  //     err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length, bytes,
+  //                                     kAudioFileStreamParseFlag_Discontinuity);
+  //   } else {
+  //     err = AudioFileStreamParseBytes(audioFileStream, (UInt32) length,
+  //                                     bytes, 0);
+  //   }
+  //   CHECK_ERR(err, AS_FILE_STREAM_PARSE_BYTES_FAILED);
+  // }
 }
 
 //
